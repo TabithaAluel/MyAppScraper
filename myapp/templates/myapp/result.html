@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+   <div class="container">
+       <div class="row">
+           <div class="col-md-5">
+               <form method="POST" action="/">
+                {%csrf_token%}
+                <input class="fom-control" name="site" type="text" id="site" placeholder="please enter site address">
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-primary" type="submit">scrape</button>
+
+            </div>
+            </form>
+            <div class="col-md-3">
+                <a class="btn btn-warning" href="/delete">Delete</a>
+
+            </div>
+
+         
+
+       </div>
+       <div class="row"> 
+           <div class="col-md-7">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col"><Link></th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                {%for link in data%}
+                  <tr>
+                    
+                    <td>{{link.id}}</td>
+                    <td>{{link.name}}}</td>
+                    <td>{{link.address}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+
+
+           </div>
+
+       </div>
+
+   </div>
+    
+    
+</body>
+</html>
